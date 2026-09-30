@@ -65,7 +65,7 @@ func _input(event):
 	if Rhythia.get("cam_unlock") and !Rhythia.replaying and !Rhythia.absolute_mode:
 		if (event is InputEventMouseMotion) or (event is InputEventScreenDrag):
 			yaw = fmod(yaw - event.relative.x * Rhythia.sensitivity * 0.2, 360)
-			pitch = max(min(pitch - event.relative.y * Rhythia.sensitivity * 0.2, 89), -89)
+			pitch = max(min(pitch - event.relative.y * Rhythia.sensitivity * Rhythia.sensitivity_y * 0.2, 89), -89)
 			rotation = Vector3(deg2rad(pitch), deg2rad(yaw), 0)
 
 func _ready():

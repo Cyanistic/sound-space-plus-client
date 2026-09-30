@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://uitheme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/font/Lato/Lato-Regular.ttf" type="DynamicFontData" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://scripts/ui/settings/SaveSettings.gd" type="Script" id=20]
 [ext_resource path="res://scripts/ui/settings/HitWindow.gd" type="Script" id=21]
 [ext_resource path="res://scripts/ui/settings/Sensitivity.gd" type="Script" id=22]
+[ext_resource path="res://scripts/ui/settings/SensitivityY.gd" type="Script" id=69]
 [ext_resource path="res://scripts/ui/settings/VSync.gd" type="Script" id=23]
 [ext_resource path="res://scripts/ui/settings/ApproachRate.gd" type="Script" id=24]
 [ext_resource path="res://scripts/ui/settings/MusicOffset.gd" type="Script" id=25]
@@ -656,6 +657,53 @@ custom_colors/font_color = Color( 0.690196, 0.690196, 0.690196, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0 )
 custom_fonts/font = SubResource( 4 )
 text = "[def. 1] changes how much the cursor/camera move with mouse/touch input"
+valign = 1
+
+[node name="SensitivityY" type="HBoxContainer" parent="TabContainer/Gameplay/Camera/Group/H"]
+margin_top = 36.0
+margin_right = 330.0
+margin_bottom = 68.0
+hint_tooltip = "[def. 1] vertical multiplier - changes how much the cursor/camera move vertically"
+
+[node name="SensitivityY" type="SpinBox" parent="TabContainer/Gameplay/Camera/Group/H/SensitivityY"]
+margin_right = 200.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 200, 32 )
+rect_pivot_offset = Vector2( 286, -176 )
+hint_tooltip = "[def. 1] vertical multiplier - changes how much the cursor/camera move vertically"
+focus_mode = 2
+theme = ExtResource( 1 )
+step = 0.001
+value = 1.0
+allow_greater = true
+allow_lesser = true
+script = ExtResource( 69 )
+
+[node name="Label" type="Label" parent="TabContainer/Gameplay/Camera/Group/H/SensitivityY"]
+margin_left = 204.0
+margin_top = 6.0
+margin_right = 304.0
+margin_bottom = 26.0
+focus_mode = 2
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.898039, 0.94902, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Sensitivity Y"
+align = 2
+valign = 1
+
+[node name="Desc" type="Label" parent="TabContainer/Gameplay/Camera/Group/H/SensitivityY"]
+visible = false
+margin_left = 308.0
+margin_top = 6.0
+margin_right = 827.0
+margin_bottom = 26.0
+focus_mode = 2
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.690196, 0.690196, 0.690196, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0 )
+custom_fonts/font = SubResource( 4 )
+text = "[def. 1] vertical multiplier - changes how much the cursor/camera move vertically"
 valign = 1
 
 [node name="LockMouse" type="CheckBox" parent="TabContainer/Gameplay/Camera/Group/H"]

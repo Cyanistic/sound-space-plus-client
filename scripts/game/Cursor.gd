@@ -121,12 +121,12 @@ func _input(event:InputEvent):
 					if Rhythia.absolute_mode:
 						move_cursor_abs(get_absolute_position() * -1)
 					else:
-						move_cursor((event.relative * 0.018 * Rhythia.sensitivity / Rhythia.render_scale) * -1)
+						move_cursor((event.relative * Vector2(1, Rhythia.sensitivity_y) * 0.018 * Rhythia.sensitivity / Rhythia.render_scale) * -1)
 				else:
 					if Rhythia.absolute_mode:
 						move_cursor_abs(get_absolute_position())
 					else:
-						move_cursor(event.relative * 0.018 * Rhythia.sensitivity / Rhythia.render_scale)
+						move_cursor(event.relative * Vector2(1, Rhythia.sensitivity_y) * 0.018 * Rhythia.sensitivity / Rhythia.render_scale)
 
 		if (event is InputEventScreenDrag):
 			$VisualPos.visible = true

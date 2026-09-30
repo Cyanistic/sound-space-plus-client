@@ -591,6 +591,7 @@ var show_miss_effect:bool = true
 # Settings - Camera/Controls
 var hlm_converted:bool = false
 var sensitivity:float = 0.5
+var sensitivity_y:float = 1.0
 var parallax:float = 6.5 setget ,get_parallax
 func get_parallax():
 	if replaying and replay.settings.has("parallax"): return replay.settings.get("parallax")
@@ -1018,6 +1019,8 @@ func load_saved_settings(saveFile:String = Globals.p("user://settings.json")):
 			approach_rate = data.approach_rate
 		if data.has("sensitivity"):
 			sensitivity = data.sensitivity
+		if data.has("sensitivity_y"):
+			sensitivity_y = data.sensitivity_y
 		if data.has("play_hit_snd"):
 			play_hit_snd = data.play_hit_snd
 		if data.has("play_miss_snd"):
@@ -1557,6 +1560,7 @@ func save_settings(saveFile:String = Globals.p("user://settings.json")):
 			disable_pausing = disable_pausing,
 			approach_rate = approach_rate,
 			sensitivity = sensitivity,
+			sensitivity_y = sensitivity_y,
 			play_hit_snd = play_hit_snd,
 			play_miss_snd = play_miss_snd,
 			auto_preview_song = auto_preview_song,
