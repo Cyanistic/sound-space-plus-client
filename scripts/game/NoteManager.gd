@@ -433,6 +433,12 @@ func _ready():
 		fade_out_end = ((3.0/50.0)*approach_rate)
 		fade_out_base = 0.8
 	
+	elif Rhythia.fade_out_length > 0:
+		fade_out_enabled = true
+		fade_out_start = Rhythia.get("spawn_distance") * (Rhythia.fade_out_length / 100.0)
+		fade_out_end = 0
+		fade_out_base = 1.0 - (Rhythia.fade_out_floor / 100.0)
+	
 	if Rhythia.mod_nearsighted:
 		fade_in_enabled = true
 		fade_in_start = ((30.0/50.0)*approach_rate)

@@ -1770,6 +1770,70 @@ custom_fonts/font = SubResource( 3 )
 text = "Fade Length"
 valign = 1
 
+[node name="FadeOut" type="HBoxContainer" parent="TabContainer/Notes/Notes/Group/H"]
+margin_top = 338.0
+margin_right = 1214.0
+margin_bottom = 370.0
+hint_tooltip = "[def. 0%] percentage of the spawn distance that notes take to fade out as they approach the grid; 0 disables the fade out"
+
+[node name="FadeOut" type="SpinBox" parent="TabContainer/Notes/Notes/Group/H/FadeOut"]
+margin_right = 200.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 200, 32 )
+rect_pivot_offset = Vector2( 286, -484 )
+hint_tooltip = "[def. 0%] percentage of the spawn distance that notes take to fade out as they approach the grid; 0 disables the fade out"
+focus_mode = 2
+theme = ExtResource( 1 )
+step = 0.01
+value = 0.0
+suffix = "%"
+script = ExtResource( 50 )
+target = "fade_out_length"
+
+[node name="Label" type="Label" parent="TabContainer/Notes/Notes/Group/H/FadeOut"]
+margin_left = 204.0
+margin_top = 6.0
+margin_right = 289.0
+margin_bottom = 26.0
+focus_mode = 2
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.898039, 0.94902, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Fade Out"
+valign = 1
+
+[node name="FadeOutFloor" type="HBoxContainer" parent="TabContainer/Notes/Notes/Group/H"]
+margin_top = 370.0
+margin_right = 1214.0
+margin_bottom = 402.0
+hint_tooltip = "[def. 0%] opacity that notes settle at once the fade out completes; 0 makes them fully invisible, higher leaves them dimmed"
+
+[node name="FadeOutFloor" type="SpinBox" parent="TabContainer/Notes/Notes/Group/H/FadeOutFloor"]
+margin_right = 200.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 200, 32 )
+rect_pivot_offset = Vector2( 286, -520 )
+hint_tooltip = "[def. 0%] opacity that notes settle at once the fade out completes; 0 makes them fully invisible, higher leaves them dimmed"
+focus_mode = 2
+theme = ExtResource( 1 )
+step = 0.01
+value = 0.0
+suffix = "%"
+script = ExtResource( 50 )
+target = "fade_out_floor"
+
+[node name="Label" type="Label" parent="TabContainer/Notes/Notes/Group/H/FadeOutFloor"]
+margin_left = 204.0
+margin_top = 6.0
+margin_right = 359.0
+margin_bottom = 26.0
+focus_mode = 2
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.898039, 0.94902, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Fade Out Opacity"
+valign = 1
+
 [node name="DoNotePushback" type="CheckBox" parent="TabContainer/Notes/Notes/Group/H"]
 margin_top = 306.0
 margin_right = 1214.0
