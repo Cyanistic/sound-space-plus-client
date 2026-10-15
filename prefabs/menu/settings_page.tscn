@@ -1774,14 +1774,14 @@ valign = 1
 margin_top = 338.0
 margin_right = 1214.0
 margin_bottom = 370.0
-hint_tooltip = "[def. 0%] percentage of the spawn distance that notes take to fade out as they approach the grid; 0 disables the fade out"
+hint_tooltip = "[def. 0%] percentage of spawn distance remaining when notes start fading out; 0 disables the fade out"
 
 [node name="FadeOut" type="SpinBox" parent="TabContainer/Notes/Notes/Group/H/FadeOut"]
 margin_right = 200.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 200, 32 )
 rect_pivot_offset = Vector2( 286, -484 )
-hint_tooltip = "[def. 0%] percentage of the spawn distance that notes take to fade out as they approach the grid; 0 disables the fade out"
+hint_tooltip = "[def. 0%] percentage of spawn distance remaining when notes start fading out; 0 disables the fade out"
 focus_mode = 2
 theme = ExtResource( 1 )
 step = 0.01
@@ -1799,7 +1799,38 @@ focus_mode = 2
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0.898039, 0.94902, 1, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Fade Out"
+text = "Fade Out Start"
+valign = 1
+
+[node name="FadeOutEnd" type="HBoxContainer" parent="TabContainer/Notes/Notes/Group/H"]
+margin_top = 370.0
+margin_right = 1214.0
+margin_bottom = 402.0
+hint_tooltip = "[def. 0%] percentage of spawn distance remaining when notes reach Fade Out Opacity and hold it; 0 finishes at the grid; values above Fade Out Start are treated as equal to it (instant fade)"
+
+[node name="FadeOutEnd" type="SpinBox" parent="TabContainer/Notes/Notes/Group/H/FadeOutEnd"]
+margin_right = 200.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 200, 32 )
+hint_tooltip = "[def. 0%] percentage of spawn distance remaining when notes reach Fade Out Opacity and hold it; 0 finishes at the grid; values above Fade Out Start are treated as equal to it (instant fade)"
+focus_mode = 2
+theme = ExtResource( 1 )
+step = 0.01
+value = 0.0
+suffix = "%"
+script = ExtResource( 50 )
+target = "fade_out_end"
+
+[node name="Label" type="Label" parent="TabContainer/Notes/Notes/Group/H/FadeOutEnd"]
+margin_left = 204.0
+margin_top = 6.0
+margin_right = 359.0
+margin_bottom = 26.0
+focus_mode = 2
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0.898039, 0.94902, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Fade Out End"
 valign = 1
 
 [node name="FadeOutFloor" type="HBoxContainer" parent="TabContainer/Notes/Notes/Group/H"]

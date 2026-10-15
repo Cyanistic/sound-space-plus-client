@@ -436,7 +436,8 @@ func _ready():
 	elif Rhythia.fade_out_length > 0:
 		fade_out_enabled = true
 		fade_out_start = Rhythia.get("spawn_distance") * (Rhythia.fade_out_length / 100.0)
-		fade_out_end = 0
+		# Equal endpoints make an instant transition; never finish before the fade starts.
+		fade_out_end = Rhythia.get("spawn_distance") * (clamp(Rhythia.fade_out_end, 0.0, Rhythia.fade_out_length) / 100.0)
 		fade_out_base = 1.0 - (Rhythia.fade_out_floor / 100.0)
 	
 	if Rhythia.mod_nearsighted:

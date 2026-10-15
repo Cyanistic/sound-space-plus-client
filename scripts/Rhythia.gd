@@ -585,7 +585,8 @@ func get_fade_length():
 
 # fade out: notes fade toward the grid instead of staying fully opaque.
 # stored as percentages (0-100) to match the SpinBox rows that drive them.
-var fade_out_length:float = 0 # percent of the spawn distance notes take to fade out; 0 disables
+var fade_out_length:float = 0 # percent of spawn distance remaining when fade out starts; 0 disables
+var fade_out_end:float = 0 # percent of spawn distance remaining when fade out finishes
 var fade_out_floor:float = 0 # percent opacity the fade settles at; 0 means fully invisible
 
 var show_hit_effect:bool = true
@@ -1126,6 +1127,8 @@ func load_saved_settings(saveFile:String = Globals.p("user://settings.json")):
 			fade_length = data.fade_length
 		if data.has("fade_out_length"):
 			fade_out_length = data.fade_out_length
+		if data.has("fade_out_end"):
+			fade_out_end = data.fade_out_end
 		if data.has("fade_out_floor"):
 			fade_out_floor = data.fade_out_floor
 		if data.has("show_hit_effect"):
@@ -1618,6 +1621,7 @@ func save_settings(saveFile:String = Globals.p("user://settings.json")):
 			grid_parallax = grid_parallax,
 			fade_length = fade_length,
 			fade_out_length = fade_out_length,
+			fade_out_end = fade_out_end,
 			fade_out_floor = fade_out_floor,
 			show_hit_effect = show_hit_effect,
 			lock_mouse = lock_mouse,
